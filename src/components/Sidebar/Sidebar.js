@@ -44,7 +44,7 @@ const Sidebar = (props) => {
     },
     {
       path: "/tables",
-      name: "Tabela",
+      name: "Škole",
       icon: "ni ni-bullet-list-67 text-red",
       layout: "/admin",
     },

@@ -6,7 +6,7 @@ import Tables from "views/examples/Tables.js";
 const routes = [
   {
     path: "/index",
-    name: "Statistike",
+    name: "Škole",
     icon: "ni ni-tv-2 text-primary",
     component: Index,
     layout: "/admin"

@@ -14,13 +14,23 @@ import {
 } from "reactstrap";
 
 const Login = () => {
+  if(localStorage.getItem("isLogged")) {
+    window.location.href = "/admin/index";
+  }
+  const handleLogin= ()=>{
+    setTimeout(() => {
+      localStorage.setItem("isLogged", true);
+      window.location.href = "/admin/index";
+    }
+    , 1000);
+  }
   return (
     <>
       <Col lg="5" md="7">
         <Card className="bg-secondary shadow border-0">
           <CardHeader className="bg-transparent pb-5">
             <div className="text-muted text-center mt-2 mb-3">
-              <small>Sign in to proceed website</small>
+              <small>Prijavite se da biste pristupili stranici</small>
             </div>
           </CardHeader>
           <CardBody className="px-lg-5 py-lg-5">
@@ -61,8 +71,8 @@ const Login = () => {
                 />
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
-                  Sign in
+                <Button className="my-4" color="primary" type="button" onClick={handleLogin} >
+                  Prijavi Se
                 </Button>
               </div>
             </Form>

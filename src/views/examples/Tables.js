@@ -39,15 +39,14 @@ const Tables = () => {
     <>
       {isLoaded ? (
         <>
-          <Header />
-          <Container className="mt--7" fluid>
+          <Container className="mt-7" fluid>
             <Row>
               <div className="col">
                 <Card className="shadow">
                   <CardHeader className="border-0">
                     <h3 className="mb-0">Lista škola</h3>
                   </CardHeader>
-                  <Table className="align-items-center table-flush" responsive>
+                  <Table className="align-items-center table-flush w-100" responsive>
                     <thead className="thead-light">
                       <tr>
                         <th scope="col">Ime škole</th>

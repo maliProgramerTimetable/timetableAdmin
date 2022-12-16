@@ -27,8 +27,12 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import routes from "routes.js";
 
 const Admin = (props) => {
+  if (localStorage.getItem("isLogged") === null) {
+    window.location.href = "/auth/login";
+  }
   const mainContent = React.useRef(null);
   const location = useLocation();
+  const noteId = location.pathname.split("/")[2];
 
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -76,10 +80,11 @@ const Admin = (props) => {
         }}
       />
       <div className="main-content" ref={mainContent}>
-        <AdminNavbar
+        { noteId === "tables" ? null : <AdminNavbar
           {...props}
           brandText={getBrandText(props.location.pathname)}
-        />
+        />}
+        
         <Switch>
           {getRoutes(routes)}
           <Redirect from="*" to="/admin/index" />
