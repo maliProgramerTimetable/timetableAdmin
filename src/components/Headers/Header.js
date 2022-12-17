@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Modal from "react-modal";
 import firebase from "../../firebase/firebase";
 import * as yup from "yup";
@@ -20,8 +20,10 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import emailjs from "@emailjs/browser";
 
 const Header = () => {
+  const ref = useRef();
   const db = firebase.firestore();
   const schoolSendInfo = (data) => {
     firebase
@@ -35,6 +37,12 @@ const Header = () => {
           email: data.email,
           password: data.password,
         };
+        emailjs.send(
+          "service_4h8u0b2",
+          "template_le1dtkp", 
+          data,
+          "chzVRFG7y7meberWC"
+        )
         db.collection(userId).doc(userId).set(userData);
         db.collection("schools").doc(userId).set({
           userData,
@@ -44,6 +52,7 @@ const Header = () => {
       .catch((err) => console.log(err));
     reset();
     setModalIsOpen(false);
+    console.log(ref.current)
   };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -207,7 +216,7 @@ const Header = () => {
           ></i>
           <div className="modal-container">
             <h1 className="create-school-title">Kreiraj Školu</h1>
-            <Form role="form mt-5" onSubmit={handleSubmit(schoolSendInfo)}>
+            <Form role="form mt-5" onSubmit={handleSubmit(schoolSendInfo)} ref={ref}>
               <FormGroup className="mb-3">
                 <InputGroup className="input-group-alternative">
                   <InputGroupAddon addonType="prepend">
