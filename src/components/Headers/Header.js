@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Modal from "react-modal";
 import firebase from "../../firebase/firebase";
 import * as yup from "yup";
@@ -13,7 +13,6 @@ import {
   CardBody,
   FormGroup,
   Form,
-  Input,
   InputGroupAddon,
   InputGroupText,
   InputGroup,
@@ -65,7 +64,6 @@ const Header = () => {
 
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
     reset,

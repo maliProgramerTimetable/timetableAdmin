@@ -11,7 +11,6 @@ import {
   Row,
 } from "reactstrap";
 import firebase from "../../firebase/firebase";
-import Header from "components/Headers/Header.js";
 import { useState, useEffect } from "react";
 import Spinner from "components/Spinner/Spinner";
 

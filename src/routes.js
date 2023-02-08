@@ -1,5 +1,4 @@
 import Index from "views/Index.js";
-import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 
 
@@ -18,13 +17,5 @@ const routes = [
     component: Tables,
     layout: "/admin"
   },
-  {
-    path: "/login",
-    name: "Login",
-    icon: "ni ni-key-25 text-info",
-    component: Login,
-    layout: "/auth"
-  },
-
 ];
 export default routes;
